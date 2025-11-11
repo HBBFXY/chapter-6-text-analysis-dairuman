@@ -1,4 +1,4 @@
-# 2. 按频率降序排序（频率相同按字符ASCII升序），构造有序字典
+# 按频率降序排序（频率相同按字符ASCII升序），构造有序字典
     # 有序字典既满足"字典类型"要求，又保证排序正确
     sorted_items = sorted(char_counts.items(), key=lambda x: (-x[1], x[0]))
     return OrderedDict(sorted_items)

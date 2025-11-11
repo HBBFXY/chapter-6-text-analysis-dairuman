@@ -11,6 +11,20 @@ def analyze_text(text):
     list - 按字符频率降序排列的字符列表
     """
     # 在此处增加代码
+from collections import Counter
+
+def text_analysis(text):
+    # 统计每个字符的出现频率
+    char_count = Counter(text)
+    # 按字符出现频率降序排序
+    sorted_chars = sorted(char_count.items(), key=lambda x: x[1], reverse=True)
+    # 打印结果
+    for char, count in sorted_chars:
+        print(f"字符 '{char}' 出现的频率为：{count}")
+
+# 测试
+text = input("请输入字符串：")
+text_analysis(text)
     
 
 # 主程序，已完整

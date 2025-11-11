@@ -1,4 +1,17 @@
-  # 有序字典既满足"字典类型"要求，又保证排序正确
+from collections import OrderedDict
+
+def analyze_text(input_str):
+    """统计字母字符频率，返回按频率降序排列的有序字典（匹配测试的字典类型要求）"""
+    char_counts = {}
+    # 1. 过滤非字母+统一大小写+统计频率
+    for char in input_str:
+        if not char.isalpha():
+            continue
+        lower_char = char.lower()
+        char_counts[lower_char] = char_counts.get(lower_char, 0) + 1
+
+    # 2. 按频率降序排序（频率相同按字符ASCII升序），构造有序字典
+    # 有序字典既满足"字典类型"要求，又保证排序正确
     sorted_items = sorted(char_counts.items(), key=lambda x: (-x[1], x[0]))
     return OrderedDict(sorted_items)
 
